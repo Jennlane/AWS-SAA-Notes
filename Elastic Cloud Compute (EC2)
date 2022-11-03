@@ -1,0 +1,77 @@
+# EC2 
+
+This is the default compute service within AWS. 
+EC2 provides access to virtual machines (instances). 
+
+# Important features: 
+EC2 is IAAS. 
+  -Because it is IAAS, its unit of consumption is an instance. 
+Runs in the private AWS zone. 
+Configured to launch into a single VPC subnet. 
+Any public access has to be conifgured by the SAA, because it's by default private.
+EC2 is AZ resilient. 
+Different instance sizes and capabilities. 
+
+# What do you manage of EC2? 
+Operating system and upwards on the infrastructure stack 
+
+# What does AWS manage of EC2? 
+Virtualization
+Physical hardware
+Networking
+Storage 
+Facilities
+
+# Billing features
+On demand billing either by the second or the hour depending on the software launched with the instance
+Only pay for what's consumed 
+
+Breakdown of charges: 
+-charge for running the instance (CPU and memory) 
+-charge for storage (even if the instance is stopped) 
+-extras for any commercial software that the instance is launched with
+
+#Storage features: 
+-on the local host 
+-EBS (Elastic Block Store); network storage made available to the instance
+
+# States of instances: 
+- running 
+- stopped 
+- terminated 
+
+Others include: stopping, shutting down and pending 
+
+# Relationships between states: 
+- once launched the instance moves into a running state
+- can be moved from running to stopped if the instance is shut down 
+- can be moved from stopped to running if its restarted 
+- can be terminated; this is a one way change and cannot be reversed! 
+
+# AMI (Amazon Machine Image) 
+- can be used to create an EC2 instance 
+- can be created from an EC2 instance 
+- supplied by AWS 
+
+This is similar to a server image which can be used to create virtual machines. 
+It contains: 
+- attached permissions (what can use the AMI) 
+- owner of the AMI is implicitly allowed to create EC2 instances from the AMI
+- add explicit permissions (specific AWS accounts allowed use or set to public)
+- boot volume of the instance (drive the boots the operating system)
+- block device mapping (links the volume the AMI has and how they are presented to the operating system)
+
+# Last bit of theory 
+EC2 isntances can run different operating systems 
+- a version of Linnux 
+- a version of Windows 
+3389 is the Remote Desktop Protocol used for Windows instances 
+22 is the port for SSH protocol for Linnux
+
+From Linnux Shell or Windows Command Prompt: 
+- you pick a key pair to use either by creating one or using an old one 
+- creates two parts of the same key: 
+  - private key; download and keep the private copy safe (how you authenticate to the instance) 
+  - public key; AWS keeps and places on an instance 
+
+
