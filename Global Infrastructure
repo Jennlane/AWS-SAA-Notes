@@ -1,0 +1,24 @@
+# Regions, Edge Locations and Availability Zones 
+
+Three benefits of regions include: 
+-Geographic separation - isolated fault domain  
+-Geopolitical separation - different governance; once data is placed in a region, AWS commits that it won't leave that region unless you explicitly tell AWS you're okay with data moving regions
+-Location control - performance; allows you to tune architecture for performance - even duplicating architecture in another region if the need is there (e.g. Netflix)
+
+# What's inside a region
+
+Availability Zones: multiple AZs per AWS region; isolated compute, storage, networking, power and facilities within a region. 
+
+Services can be placed across multiple AZs to build resiliency. 
+
+# Resilience level of a service 
+Globally resilient - services operates globally with one database, one product, and its data is replicated across multiple regions inside of AWS
+(e.g. a region can fail, and the service will continue running. It would take a global failure to take out the service.)
+AWS services = IAM and Route 53 
+
+Region resilient - services which operate in a single region with one set of data per region; generally replicate data to multiple AZs within a region. 
+(e.g. an AZ may fail, and the service will continue running. It would take the region failing to take the service out.)
+
+Availability Zone resilient - services run from a single AZ; if the AZ fails, the service will fail. 
+*It's possible for hardware to fail inside an AZ and the services to continue running. 
+
