@@ -1,0 +1,33 @@
+# Intro
+VPC is the service you use to create private networks inside AWS that other private services will run from.
+-also the service used to connect your AWS private networks to your on-prem networks; allows you to connect to other cloud platforms when creating multi-cloud deployment.
+
+VPC is a virtual network inside of AWS and regionally resilient. 
+A VPC is within 1 account & 1 Region. 
+Private and isolated unless you as an SAA decide otherwise.
+
+Two types of VPC available inside of a region: 
+-Default VPC; only one per region 
+-Custom VPC; many per region - can be configured in any way that you want as long as you stay within the rules and limits of VPCs
+  -can be linked with other VPCs and communicate with other cloud platforms as well as on-prem networks
+  -networking conifguration is handled by AWS on your behalf
+  - entirely private 
+
+Default VPC: allocated a range of IP addresses known as VPC CIDR
+
+Custom VPCs may have multiple CIDR ranges, but Default only gets one: 
+  172.31.0.0/16
+ 
+VPCs provide resiliency because they can be divided into subnets. Each subnet inside a VPC is located in one AZ. 
+
+*Default VPCs have one subnet in every AZ in that region.*
+
+Breakdown: VPC is the cake, and subnets are the slices. Each subnet will provide the range of IP addresses within the VPC. 
+
+# Summary: 
+
+*One Default VPC per region - can be deleted and recreated. 
+*Default VPC CIDR is always 172.31.0.0/16.
+*Inside of every default VPC, a smaller /20 subnet is created in every AZ in the region
+*VPC communicates with the Internet Gateway (IGW) and Security Group (SG) and NACL provide security measures for data transfer going in and out. 
+*Subnets assign public IPv4 addresses. 
