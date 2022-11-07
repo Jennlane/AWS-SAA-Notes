@@ -1,0 +1,50 @@
+S3 is a Global Storage Platform - regional based/resilient. 
+ - provides a near infinite scalabe object storage platform and is accessible from anywhere with a public internet connection
+ - tends to be the default storage location for data ingestion and output for many AWS services
+ - unlimited data and multi-user 
+ e.g. movies, audio, photos, text, large data sets etc. 
+ 
+ Access: 
+ via UI/CLI/API/HTTP 
+ 
+ 2 Main Deliveries: 
+ - objects 
+ - buckets
+ 
+ # Objects 
+ - made up of two main files: object key, value (data or content of object)
+ - value of an object can range from 0 bytes to 5TB. 
+ - they also have a version ID, metadata, access control and subresources
+ 
+ # Buckets
+ - data inside the bucket has a primary home region, and it never leaves the region unless the SAA conifgures it to leave
+ - blast radius of failure is isolated to that region
+ - identified by its name (e.g. caviedata) 
+ - bucket names are globally unique 
+ - bucket can hold from 0 - unlimited bytes of data; infinitely scalable 
+ - no complex structure; completely flat
+ - everything is stored in the bucket at the root level 
+ 
+ Organizationally, naming files following the format: 
+ /puppy/cavalier1.jpg
+ /puppy/cavalier2.jpg
+ /puppy/cavalier3.jpg
+ 
+ will result in the bucket creating a file named "Puppy" and inside one can find individual files named: 
+ cavalier1.jpg 
+ cavalier2.jpg
+ cavalier3.jpg
+ 
+ These folders are referred to prefixes to object names. 
+ 
+ # Exam Powerup
+ - bucket names are globally unique 
+ - bucket names must be 3-63 characters, all lower case, no underscores
+ - can't be IP formatted 
+ - limit of 100 buckets in an AWS account (soft limit) up to 1000 buckets (hard limit)
+ - you can divide a single bucket using prefixes to create folders inside of buckets to almost "subdivide" them for an account with thousands of users 
+ - S3 is an object storage system NOT an file or block storage
+ - you CAN'T mount an S3 bucket as (K:\ or /images
+ - great for large scale data storage, distribution or upload
+ - great for offload
+ - input and or output to many AWS products
